@@ -1,0 +1,25 @@
+# coding: utf-8
+
+status          = {}#名前と血液型の辞書
+dictionary      = {}#検証に使う辞書
+nameHitBlood    = 0 #名前が一致した時の血液型(初期化)
+bloodTypeVal    = 0 #辞書から照合する血液型(初期化)
+
+
+peopleCount = int(input())
+for i in range(peopleCount):
+    data            = input().split()
+    status[data[0]] = data[1]
+
+ 
+dicCount   = int(input())
+for j in range(dicCount):
+    dicData                  = input().split()
+    dictionary[dicData[0]]   = dicData[1]
+
+
+for name, blood in status.items():
+    for bloodTypeVal, result in dictionary.items():
+        if bloodTypeVal == blood:
+            print(name, result)
+            break
