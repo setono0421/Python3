@@ -1,0 +1,9 @@
+dictionary  ={}
+serch_name    = input() 
+line_count    = int(input())
+for i in range(line_count):
+    line    = input().split()
+    dictionary[line[0]]    = line[1]
+    if line[0] == serch_name:
+        print(line[0] +" "+dictionary[line[0]])
+    
