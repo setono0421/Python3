@@ -1,0 +1,6 @@
+dictionary  ={}
+line_count    = int(input())
+for i in range(line_count):
+    line    = input().split()
+    dictionary[line[0]]    = line[1]
+    print(line[0] +" "+dictionary[line[0]])
