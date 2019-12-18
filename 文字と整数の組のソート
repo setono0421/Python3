@@ -1,0 +1,11 @@
+number = int(input())
+dic = {}
+
+for i in range(number):
+    pair = input().split()
+    dic[int(pair[1])] = pair[0] #ディクショナリ名[キー] = 値　の図(キーの追加)　例　dic[0]=G
+
+dic = sorted(dic.items())#(キー、値)のタプルを1つずつ返す.items
+
+for i in dic:
+    print(i[1])
