@@ -1,0 +1,13 @@
+# coding: utf-8
+# Your code here!
+
+count   =int(input())
+total   = 0
+for i in range(0, count):
+    number  = list(map(int, input().split()))
+    if number[0] == number[1]: 
+        cross   = number[0] * number[1] 
+        total   = total + cross
+    else:
+        total   = total + number[0] + number[1]
+print(total)
