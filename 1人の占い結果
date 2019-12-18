@@ -1,7 +1,7 @@
 # coding: utf-8
 
 condition       = {}#名前と血液型の辞書
-dictionary      = {}#憲章に使う辞書
+dictionary      = {}#検証に使う辞書
 nameHitBlood    = 0 #名前が一致した時の血液型(初期化)
 bloodTypeVal    = 0 #辞書から照合する血液型(初期化)
 
@@ -23,6 +23,7 @@ for name, bloodType in condition.items():
     if name == serchName:
         nameHitBlood = bloodType
         break
+        
     
 for bloodTypeVal, result in dictionary.items():
     if bloodTypeVal == nameHitBlood:
