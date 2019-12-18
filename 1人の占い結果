@@ -26,6 +26,5 @@ for name, bloodType in condition.items():
     
 for bloodTypeVal, result in dictionary.items():
     if bloodTypeVal == nameHitBlood:
-        bloodTypeVal    = result
-        print(bloodTypeVal)
+        print(result)
         break
