@@ -1,0 +1,11 @@
+# coding: utf-8
+# Your code here!
+
+count   = int(input())
+total   = 0
+for i in range(0, count):
+    number  = int(input())
+    if number >= 5:
+        total   = total + number
+        
+print(total)                
