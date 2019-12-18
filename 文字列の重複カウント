@@ -1,0 +1,12 @@
+serch_word = input()
+word = input()
+result = 0
+
+for i in range(len(word) - len(serch_word) + 1):	#　条件が【readとa】 だと 4-1+1=4なのでiは0,1,2,3,4
+    portion = word[i:i + len(serch_word)]		# protion = word[0:0+1]【read】 0番目から1番目までの文字列を取り出す
+							# protion = word[1:1+1]【read】 1番目から2番目までの文字列を取り出す
+							# protion = word[4:4+1]【read】 4番目から5番目までの文字列を取り出す								
+    if portion == serch_word:
+        result += 1
+
+print(result)
