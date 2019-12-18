@@ -1,0 +1,10 @@
+# coding: utf-8
+
+numbers = list(map(int, input().split()))
+word    = list(input())
+comp    = word[0]
+for i in range(numbers[0] - 1, numbers[1]):
+    word[i] = word[i].upper()
+
+comp = ''.join(word)    
+print(comp)
