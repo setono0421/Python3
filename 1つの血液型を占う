@@ -1,0 +1,9 @@
+dictionary  ={}
+
+serch_blood    = input() 
+for i in range(4):
+    blood, rate    = input().split()
+    dictionary[blood]    = rate
+    if blood == serch_blood:
+        print(dictionary[blood])
+        break
