@@ -1,0 +1,45 @@
+# coding: utf-8
+
+alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+             'V', 'W', 'X', 'Y', 'Z']
+             
+first   = input()#ここから
+last    = input()#ここまでで
+key     = input()#が含まれていれば"true",X>Yの時も"false"
+result  = 0
+between  = []
+
+
+for t, word in enumerate(alphabets):
+    if first == word:
+        ###アペンドし続けて間の文字のリストを作る処理
+        flag    = False
+        for i, word in enumerate(alphabets):
+            if first == word:
+                flag    = True
+                    
+            if flag:
+                between.append(word)
+            
+            if last == word:
+                break
+            
+        ###間の文字列にキーが含まれているかチェックする処理
+        for j, check in enumerate(between):
+            if j <= len(between) - 1:
+                if check == key:
+                    result  = "true"
+                    break
+                else:
+                    result  = "false"
+                    
+            else:
+                result  = "false"
+                break
+        break
+        
+    elif last == word:     
+        result  = "false"
+        break
+
+print(result)
