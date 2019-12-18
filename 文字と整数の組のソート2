@@ -1,0 +1,26 @@
+line_counts = int(input())
+inputs = {}
+dictionary = {}
+
+for i in range(line_counts):#回数分だけ繰り返す
+    chara, number = input().split()#文字と数値
+
+    exist = False#
+    for (key_word, key_value) in inputs.items():#for キーを代入する変数,値を代入する変数 in 辞書.items()
+        if key_word == chara:#
+            exist = True#小ループを抜ける（一致がなければFalseのまま抜ける）
+
+    if exist:#existがTrueなら(一致してれば)
+        inputs[chara] = inputs[chara] + int(number)#文字と数値を上書きする
+
+    else:#そうでなければ。existがFalseなら(一致がなければ)
+        inputs[chara] = int(number)#数値と文字を組み合わせる
+
+## ソート用にkeyとvalueを反転させた辞書を作る
+for (key_word, key_value) in inputs.items():#
+    dictionary[key_value] = key_word#
+
+dictionary = sorted(dictionary.items(), reverse=True)#
+
+for i in dictionary:#dictionaryの要素を順番にiに代入
+    print(i[1] + ' ' + str(i[0]))#文字と文字化した数値を表示
