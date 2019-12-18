@@ -1,28 +1,31 @@
 # coding: utf-8
 
-conditionName   =[]
-conditionBlood  = []
-dictionary  = {}
-dictionaryList0  = []
+condition       = {}#名前と血液型の辞書
+dictionary      = {}#憲章に使う辞書
+nameHitBlood    = 0 #名前が一致した時の血液型(初期化)
+bloodTypeVal    = 0 #辞書から照合する血液型(初期化)
 
 
 serchName   = input()
-peopleCount  = int(input())
+peopleCount = int(input())
 for i in range(peopleCount):
-    name, bloodType = input().split()
-    conditionName.append(name) 
-    conditionBlood.append(bloodType) 
-    
-    
+    test1               = input().split()
+    condition[test1[0]] = test1[1]
+
+ 
 typeCount   = int(input())
 for j in range(typeCount):
-    dictionaryType    = input().split()
+    dictionaryType                  = input().split()
     dictionary[dictionaryType[0]]   = dictionaryType[1]
-    dictionaryList0.append(dictionaryType[0]) 
 
 
-for k in range(peopleCount):
-    if serchName == conditionName[k]:
-        for l in dictionaryList0:
-            if conditionBlood[k] == l:
-                print(dictionary[l])
+for name, bloodType in condition.items():
+    if name == serchName:
+        nameHitBlood = bloodType
+        break
+    
+for bloodTypeVal, result in dictionary.items():
+    if bloodTypeVal == nameHitBlood:
+        bloodTypeVal    = result
+        print(bloodTypeVal)
+        break
