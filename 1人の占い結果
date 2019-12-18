@@ -1,0 +1,28 @@
+# coding: utf-8
+
+conditionName   =[]
+conditionBlood  = []
+dictionary  = {}
+dictionaryList0  = []
+
+
+serchName   = input()
+peopleCount  = int(input())
+for i in range(peopleCount):
+    name, bloodType = input().split()
+    conditionName.append(name) 
+    conditionBlood.append(bloodType) 
+    
+    
+typeCount   = int(input())
+for j in range(typeCount):
+    dictionaryType    = input().split()
+    dictionary[dictionaryType[0]]   = dictionaryType[1]
+    dictionaryList0.append(dictionaryType[0]) 
+
+
+for k in range(peopleCount):
+    if serchName == conditionName[k]:
+        for l in dictionaryList0:
+            if conditionBlood[k] == l:
+                print(dictionary[l])
