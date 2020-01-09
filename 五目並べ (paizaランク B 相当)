@@ -1,0 +1,123 @@
+#五目並べ (paizaランク B 相当)
+
+#5行5列の五目並べの盤面が与えられます。
+#盤面の各マスには、"O"か"X"か"."が書かれています。
+#"O"と"X"は、それぞれプレイヤーの記号を表します。
+#同じ記号が縦か横か斜めに連続で5つ並んでいれば、その記号のプレイヤーが勝者となります。
+#勝者の記号を1行で表示してください。
+#勝者がいない場合は、引き分けとして、"D"を表示してください。
+
+# coding: utf-8
+
+marks  = []
+count1  = 0
+count2  = 0
+sign    = "D"
+
+#文字列の読み込みをしてリスト化
+for j in range(5):
+    marks_line   = list(input())
+    marks.append(marks_line)
+
+
+
+####横
+for h in range(5):
+    count1  = 0
+    count2  = 0
+    for i in range(5):
+        if   marks[h][i] == "O":
+            count1   = count1 + 1
+    
+        elif marks[h][i] == "X":
+            count2   = count2 + 1
+        
+        
+    if   count1 == 5:
+        sign    = "O"
+    
+        
+    elif count2 == 5:
+        sign    = "X"
+        
+
+#まだドロー判定なら
+if sign == "D":
+    count1  = 0
+    count2  = 0
+    ####縦
+    #横に5回移動＆読み込み
+    for k in range(5):
+        #最初の列の値がが"O"なら
+        if marks[0][k] == "O":
+            #次の列から最後までと比較
+            for m in range(1,5):
+                if marks[m][k] == "O":
+                    count1   = count1 + 1  
+                    #縦がそろっていたら
+                    if   count1 == 4:
+                        sign    = "O"
+                        
+    
+        #最初の列の値がが"X"なら
+        elif marks[0][k] == "X":
+            for l in range(1,5):
+                if marks[l][k] == "X":
+                    count2   = count2 + 1
+                    #縦がそろっていたら
+                    if count2 == 4:
+                        sign    = "X"
+        #横に移動したときに揃っているかの判定値をリセット
+        count1  = 0
+        count2  = 0
+        
+    
+    
+#まだドロー判定なら    
+if sign == "D":
+    count1  = 0
+    count2  = 0        
+    ####斜め
+    ##左上から右下まで同じ記号が並んでいるか
+    #最初の列の値がが"O"なら
+    if marks[0][0] == "O":
+        #次の列から横移動&最後までと比較
+        for m in range(1,5):
+            if marks[m][m] == "O":
+                count1   = count1 + 1  
+                #ななめが揃っていたら
+                if   count1 == 4:
+                    sign    = "O"
+    
+    elif marks[0][0] == "X":
+        #次の列から最後までと比較
+        for m in range(1,5):
+            if marks[m][m] == "X":
+                count1   = count1 + 1  
+                #ななめが揃っていたら
+                if   count1 == 4:
+                    sign    = "X"
+                 
+                 
+    ##右上から左下まで同じ記号が並んでいるか
+    #最初の列の値がが"O"なら
+    if marks[0][4] == "O":
+        #次の列から横移動&最後までと比較
+        for m in range(1, 5):
+            if marks[m][4-m] == "O":
+                count2   = count2 + 1  
+                #ななめが揃っていたら
+                if   count2 == 4:
+                    sign    = "O"
+    
+    elif marks[0][4] == "X":
+        #次の列から最後までと比較
+        for m in range(1, 5):
+            if marks[m][4-m] == "X":
+                count2   = count2 + 1  
+                #ななめが揃っていたら
+                if   count2 == 4:
+                    sign    = "X"              
+
+
+print(sign)
